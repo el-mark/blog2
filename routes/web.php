@@ -11,7 +11,9 @@
 |
 */
 
-use App\Task;
+Route::get('/tasks', 'TasksController@index');
+
+Route::get('/tasks/{task}', 'TasksController@show');
 
 Route::get('/', function () {
 
@@ -19,22 +21,24 @@ Route::get('/', function () {
 
 });
 
-Route::get('/tasks', function () {
+// use App\Task;
 
-	// $tasks = DB::table('tasks')->get();
+// Route::get('/tasks', function () {
 
-	$tasks = Task::all();
+// 	// $tasks = DB::table('tasks')->get();
 
-    return view('tasks.index', compact('tasks'));
+// 	$tasks = Task::all();
 
-});
+//     return view('tasks.index', compact('tasks'));
 
-Route::get('/tasks/{task}', function ($id) {
+// });
 
-	// $task = DB::table('tasks')->find($id);
+// Route::get('/tasks/{task}', function ($id) {
 
-	$task = Task::find($id);
+// 	// $task = DB::table('tasks')->find($id);
 
-	return view('tasks.show', compact('task'));
+// 	$task = Task::find($id);
 
-});
+// 	return view('tasks.show', compact('task'));
+
+// });
