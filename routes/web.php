@@ -11,15 +11,27 @@
 |
 */
 
+Route::get('/', 'PostsController@index');
+
+Route::get('/posts/create', 'PostsController@create');
+
+Route::get('/posts/{post}', 'PostsController@show');
+
 Route::get('/tasks', 'TasksController@index');
 
 Route::get('/tasks/{task}', 'TasksController@show');
 
-Route::get('/', function () {
 
-    return view('welcome');
 
-});
+// All the crud routes
+// GET /posts
+// GET /posts/create
+// POSTS /posts
+// GET /posts/{id}/edit
+// Get /posts/{id}
+// PATCH /posts/{id}
+// DELETE /Posts/{id}
+
 
 // use App\Task;
 
