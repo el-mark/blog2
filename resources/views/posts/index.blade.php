@@ -2,6 +2,13 @@
 
 @section ('content')
 	<main>
-		<p>index de posts</p>
+		<ul>
+			@foreach ($posts as $post)
+			<li>
+				<a href="posts/{{ $post->id }}">{{ $post->title }}</a>
+				<p>{{ $post->body }}</p>
+			</li>
+			@endforeach
+		</ul>
 	</main>
 @endsection
