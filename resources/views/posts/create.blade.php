@@ -2,7 +2,7 @@
 
 @section ('content')
 <main>
-	<p>Create a post</p>
+	<h1>Create a post</h1>
 	<form method="POST" action="/posts">
 		{{ csrf_field() }}
 		<div class="form-group">
@@ -15,5 +15,9 @@
 		</div>
 		<button type="submit" class="btn btn-primary">Publish</button>
 	</form>
+	
+	@include ('layouts.errors')
+
 </main>
+<p><a href="/">Regresar</a></p>
 @endsection

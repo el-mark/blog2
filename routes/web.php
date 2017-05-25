@@ -19,6 +19,10 @@ Route::get('/posts/{post}', 'PostsController@show');
 
 Route::post('/posts', 'PostsController@store');
 
+Route::get('/posts/{post}/edit', 'PostsController@edit');
+
+Route::get('/posts/{post}/delete', 'PostsController@destroy');
+
 
 
 
@@ -34,7 +38,7 @@ Route::get('/tasks/{task}', 'TasksController@show');
 // GET /posts/create
 // POSTS /posts
 // GET /posts/{id}/edit
-// Get /posts/{id}
+// GET /posts/{id}
 // PATCH /posts/{id}
 // DELETE /Posts/{id}
 

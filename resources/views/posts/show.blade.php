@@ -2,6 +2,9 @@
 
 @section ('content')
 
-	<h1>A place to show the post.</h1>
+	<h1>{{ $post->title }}</h1>
+	<p>{{ $post->body }}</p>
+	<p><a href="/">Regresar</a></p>
+	<p><a href="/posts/{{ $post->id }}/edit">editar</a></p>
 
 @endsection

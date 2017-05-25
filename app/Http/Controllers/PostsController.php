@@ -13,13 +13,9 @@ class PostsController extends Controller
         $posts = Post::all();
     	return view('posts.index', compact('posts'));
     }
-    public function show()
-    {
-    	return view('posts.show');
-    }
     public function create()
     {
-    	return view('posts.create');
+        return view('posts.create');
     }
     public function store()
     {
@@ -30,8 +26,47 @@ class PostsController extends Controller
         // $post->body = request('body');
 
         // $post->save();
+
+        $this->validate(request(), [
+            'title' => 'required|min:5',
+            'body' => 'required'
+        ]);
         
         Post::create(request(['title', 'body']));
+
+        return redirect('/');
+    }
+    public function show(Post $post)
+    {
+        return view('posts.show', compact('post'));
+    }
+    public function edit(Post $post)
+    {
+        return view('posts.edit', compact('post'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Post $post)
+    {
+        // $post->delete();
+        Post::delete();
 
         return redirect('/');
     }
