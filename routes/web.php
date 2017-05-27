@@ -26,6 +26,9 @@ Route::get('/posts/{post}/delete', 'PostsController@destroy');
 Route::post('/posts/{post}/comments', 'CommentsController@store');
 
 
+Route::get('/register', 'AuthController@create');
+Route::get('/login', 'SessionsController@create');
+
 
 
 Route::get('/tasks', 'TasksController@index');
