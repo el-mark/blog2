@@ -23,6 +23,7 @@ Route::get('/posts/{post}/edit', 'PostsController@edit');
 
 Route::get('/posts/{post}/delete', 'PostsController@destroy');
 
+Route::post('/posts/{post}/comments', 'CommentsController@store');
 
 
 
