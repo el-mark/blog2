@@ -12,6 +12,11 @@ class RegistrationController extends Controller
     }
     public function store()
     {
-    	return view('sessions.create');
+    	$this->validate(request(), [
+    		'name' => 'requiered',
+    		'email' => 'required|email',
+    		'password' => 'required'
+    	]);
+
     }
 }
