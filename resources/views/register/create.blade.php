@@ -4,7 +4,7 @@
 
 	<h1>Register</h1>
 
-	<form method="POST" action="/posts">
+	<form method="POST" action="/register">
 		{{ csrf_field() }}
 		<div class="form-group">
 			<label for="name">Name:</label>
