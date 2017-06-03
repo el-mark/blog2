@@ -12,7 +12,7 @@
 		</div>
 		<div class="form-group">
 			<label for="email">Email:</label>
-			<input type="email" class="form-control" id="email" name="email">
+			<input type="text" class="form-control" id="email" name="email">
 		</div>
 		<div class="form-group">
 			<label for="password">Password:</label>
@@ -20,5 +20,6 @@
 		</div>
 		<button type="submit" class="btn btn-primary">Register</button>
 	</form>
+	
 
 @endsection
