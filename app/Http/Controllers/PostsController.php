@@ -8,6 +8,11 @@ use App\Post;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);   
+    }
+
     public function index()
     {
         $posts = Post::latest()->get();
@@ -32,7 +37,20 @@ class PostsController extends Controller
             'body' => 'required'
         ]);
         
-        Post::create(request(['title', 'body']));
+        // //sin user_id
+        // Post::create(request(['title','body']));
+
+        // //Opcion 1: con user_id
+        // Post::create(([
+        //     'title' => request('title'), 
+        //     'body' => request('body'),
+        //     'user_id' => auth()->id()
+        // ]));
+
+        // //Opcion 2: con user_id
+        auth()->user()->publish(
+            new Post(request(['title', 'body']))
+        );
 
         return redirect('/');
     }
