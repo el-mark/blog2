@@ -17,20 +17,23 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = Post::latest();
 
+        $posts = Post::latest()
+            ->filter(request(['month', 'year']))
+            ->get();
+
+        // $posts = Post::latest();
         
-        if ($month = request('month')) {
-            // dd($month);
-            $posts->whereMonth('created_at', Carbon::parse($month)->month);
-        }
+        // if ($month = request('month')) {
+        //     // dd($month);
+        //     $posts->whereMonth('created_at', Carbon::parse($month)->month);
+        // }
 
-        if ($year = request('year')) {
-            $posts->whereYear('created_at',$year);
-        }
+        // if ($year = request('year')) {
+        //     $posts->whereYear('created_at',$year);
+        // }
 
-
-        $posts = $posts->get();
+        // $posts = $posts->get();
 
         $archives = Post::selectRaw('year(created_at)year, monthname(created_at) month, count(*) published')
         ->groupBy('year', 'month')
