@@ -12,5 +12,8 @@
 		@endif
 	</header>
 	@yield('content')
+	
+	@include ('layouts.sidebar')
+
 </body>
 </html>

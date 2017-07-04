@@ -15,7 +15,5 @@
 			@endforeach
 		</ul>
 
-		@include ('layouts.sidebar')
-
 	</main>
 @endsection
