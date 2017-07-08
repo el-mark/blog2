@@ -1,11 +1,9 @@
 <?php
 
+// Undersanding providers
+// $stripe = app('App\Billing\Stripe');
 
-
-$stripe = app('App\Billing\Stripe');
-
-dd($stripe);
-
+// dd($stripe);
 
 
 Route::get('/', 'PostsController@index')->name('home');
