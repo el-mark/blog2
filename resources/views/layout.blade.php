@@ -11,6 +11,13 @@
 			<span>Buenos días {{ Auth::user()->name }}</span>
 		@endif
 	</header>
+
+	@if($flash = session('message'))
+		<div class="alert" role="alert">
+			{{ $flash }}
+		</div>
+	@endif
+
 	@yield('content')
 	
 	@include ('layouts.sidebar')
