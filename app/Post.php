@@ -57,4 +57,9 @@ class Post extends Model
         // group by year, month
         // order by min(created_at)desc
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }
