@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 use App\Post;
+
+use App\Repositories\Posts;
 
 use Carbon\Carbon;
 
@@ -46,6 +47,31 @@ class PostsController extends Controller
         // order by min(created_at)desc
 
     	return view('posts.index', compact('posts', 'archives'));
+
+
+        // Code from a conflict
+
+        // $posts = $posts->all(); needs this: public function index(Posts $posts)
+
+        // $posts = Post::latest()
+        //     ->filter(request(['month', 'year']))
+        //     ->get();
+
+        // $posts = Post::latest();
+        
+        // if ($month = request('month')) {
+        //     // dd($month);
+        //     $posts->whereMonth('created_at', Carbon::parse($month)->month);
+        // }
+
+        // if ($year = request('year')) {
+        //     $posts->whereYear('created_at',$year);
+        // }
+
+        // $posts = $posts->get();
+
+    	// return view('posts.index', compact('posts'));
+
     }
     public function create()
     {
@@ -80,6 +106,8 @@ class PostsController extends Controller
         auth()->user()->publish(
             new Post(request(['title', 'body']))
         );
+
+        session()->flash('message', 'Your post has been published.');
 
         return redirect('/');
     }

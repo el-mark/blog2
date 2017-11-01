@@ -11,4 +11,16 @@
 			@endforeach
 		</ol>
 	</div>
+	<div>
+	<h3>Tags</h3>
+		<ol>
+			@foreach ($tags as $tag)
+				<li>
+					<a href="/posts/tags/{{$tag}}">
+						{{$tag}}
+					</a>
+				</li>
+			@endforeach
+		</ol>
+	</div>
 @endif
